@@ -2,15 +2,15 @@
 
 This tool can visualize and modify the save file of game Black Souls.
 
-# Get Started
+## Get Started
 
-## Prerequisite
+### Prerequisite
 
 This tool needs NodeJS and Electron. Make sure that they have been installed.
 
 If your Electron is not named as "Electron39", you should change this string in the file package.json, updating to your specific command of Electron.
 
-## Install Dependencies
+### Install Dependencies
 
 Run command 
 
@@ -18,14 +18,14 @@ Run command
 npm install
 ```
 
-## Usage
+### Usage
 
 Run command
 ```bash
 npm start
 ```
 
-# License
+## License
 
 This project follows the MIT License.
 
