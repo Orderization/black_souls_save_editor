@@ -1,0 +1,15 @@
+{
+  "name": "black-souls-vxace-editor",
+  "version": "0.1.0",
+  "description": "Electron 29 GUI editor for RPG Maker VX Ace .rvdata2 saves using Game.rgss3a database names.",
+  "main": "main.js",
+  "type": "commonjs",
+  "private": true,
+  "scripts": {
+    "start": "electron39 .",
+    "start:global": "electron39 ."
+  },
+  "devDependencies": {
+    "electron": "^29.4.6"
+  }
+}

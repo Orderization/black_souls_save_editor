@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Black Souls VX Ace Save Editor</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <h1>Black Souls / RPG Maker VX Ace Save Editor</h1>
+    <p>Edit <code>Save*.rvdata2</code> with names extracted from <code>Game.rgss3a</code>.</p>
+  </header>
+
+  <main>
+    <section class="panel">
+      <h2>1. Load files</h2>
+      <div class="row">
+        <button id="chooseArchive">Choose Game.rgss3a</button>
+        <input id="archivePath" readonly placeholder="No archive selected" />
+        <button id="loadArchive">Read archive database</button>
+      </div>
+      <div class="row">
+        <button id="chooseSave">Choose Save*.rvdata2</button>
+        <input id="savePath" readonly placeholder="No save selected" />
+        <button id="loadSave">Load save</button>
+      </div>
+      <div id="status" class="status">Ready.</div>
+    </section>
+
+    <section class="panel compact-grid">
+      <div>
+        <h2>Archive database</h2>
+        <pre id="archiveInfo">No archive loaded.</pre>
+      </div>
+      <div>
+        <h2>Save summary</h2>
+        <pre id="saveInfo">No save loaded.</pre>
+      </div>
+    </section>
+
+    <section class="panel hidden" id="editorPanel">
+      <div class="toolbar">
+        <div class="goldBox">
+          <label for="goldInput">Gold</label>
+          <input id="goldInput" type="number" min="0" max="2147483647" value="0" />
+        </div>
+        <button id="writeSave" class="primary">Backup and write save</button>
+      </div>
+
+      <nav class="tabs">
+        <button class="tab active" data-tab="variables">Variables</button>
+        <button class="tab" data-tab="switches">Switches</button>
+        <button class="tab" data-tab="items">Items</button>
+        <button class="tab" data-tab="weapons">Weapons</button>
+        <button class="tab" data-tab="armors">Armors</button>
+        <button class="tab" data-tab="actors">Actors</button>
+      </nav>
+
+      <div class="filterRow">
+        <input id="filterInput" placeholder="Filter by id/name/value in current table" />
+        <button id="clearFilter">Clear</button>
+      </div>
+
+      <div class="tabContent active" id="tab-variables">
+        <table id="variablesTable">
+          <thead><tr><th>ID</th><th>Name from System.rvdata2</th><th>Value</th><th>Ruby type</th></tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+
+      <div class="tabContent" id="tab-switches">
+        <table id="switchesTable">
+          <thead><tr><th>ID</th><th>Name from System.rvdata2</th><th>Value</th></tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+
+      <div class="tabContent" id="tab-items">
+        <div class="subToolbar"><button id="addItem">Add item row</button></div>
+        <table id="itemsTable">
+          <thead><tr><th>ID</th><th>Name from Items.rvdata2</th><th>Count</th></tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+
+      <div class="tabContent" id="tab-weapons">
+        <div class="subToolbar"><button id="addWeapon">Add weapon row</button></div>
+        <table id="weaponsTable">
+          <thead><tr><th>ID</th><th>Name from Weapons.rvdata2</th><th>Count</th></tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+
+      <div class="tabContent" id="tab-armors">
+        <div class="subToolbar"><button id="addArmor">Add armor row</button></div>
+        <table id="armorsTable">
+          <thead><tr><th>ID</th><th>Name from Armors.rvdata2</th><th>Count</th></tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+
+      <div class="tabContent" id="tab-actors">
+        <table id="actorsTable">
+          <thead><tr><th>ID</th><th>Name</th><th>Level</th><th>HP</th><th>MP</th></tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <script src="renderer.js"></script>
+</body>
+</html>
